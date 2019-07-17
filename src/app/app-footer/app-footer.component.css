@@ -1,0 +1,45 @@
+/* for toolbar */
+  .mat-toolbar-row {
+  padding: 0px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+ .footer-toolbar {
+    background-color: #1e2129!important;
+    color: #fff!important;
+  }
+
+  .shopping-cart-button {
+    margin: 0px 15px!important;
+    background-color: #e91e63!important;
+    color: #fff!important;
+  }
+
+  .shopping-cart-text {
+    padding: 5px!important;
+  }
+
+  .documentation-button,.Changelog-button {
+    margin: 0px 5px!important;
+    background-color: #1e2129!important;
+    color: #fff!important;
+    box-shadow: none;
+  }
+
+  .Changelog-button {
+    padding: 0px 16px 0px 2px!important;
+  }
+
+  .documentation-text,.Changelog-text {
+    font-family: Muli,Helvetica Neue,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400
+  }
+
+  .brightness-size {
+    font-size: 10px;
+    padding: 10px 0px!important
+  }

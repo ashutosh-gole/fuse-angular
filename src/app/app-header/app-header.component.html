@@ -1,0 +1,102 @@
+<mat-toolbar fxLayout="column" fxLayoutAlign="start stretch" class="header-toolbar" color="primary">
+    <mat-toolbar-row *ngIf="isVisible===true">
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon class="material-icons-outlined">menu</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Calendar" matTooltipPosition="below">
+            <mat-icon class="secondary-text material-icons-outlined">today</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Mail" matTooltipPosition="below">
+            <mat-icon class="secondary-text material-icons-outlined">email</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Contacts" matTooltipPosition="below">
+            <mat-icon class="secondary-text material-icons-outlined">account_box</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="To-Do" matTooltipPosition="below">
+            <mat-icon class="secondary-text material-icons-outlined">check_box</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Click to add/remove shortcut" matTooltipPosition="below">
+            <mat-icon class="starIcon">star</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+
+        <div class="avatarMenu" fxLayout="row" fxLayoutAlign="space-evenly center" [matMenuTriggerFor]="menu">
+            <div>
+                <img class="avatar" src="../../assets/Velazquez.jpg">
+            </div>
+            <div class="username">Charlie Adams</div>
+            <mat-icon class="keyboard_arrow_down material-icons-outlined">keyboard_arrow_down</mat-icon>
+        </div>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon class="secondary-text material-icons-outlined">account_circle</mat-icon>
+                <span>My Profile</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon class="secondary-text material-icons-outlined">mail</mat-icon>
+                <span>Inbox</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon class="secondary-text material-icons-outlined">exit_to_app</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+
+        <div class="toolbar-separator"></div>
+
+        <button mat-icon-button class="search-button" (click)="showTextbox()">
+            <mat-icon class="secondary-text material-icons-outlined">search</mat-icon>
+        </button>
+
+        <div class="toolbar-separator"></div>
+
+        <div class="avatarMenu country-menu" fxLayout="row" fxLayoutAlign="space-evenly center"
+            [matMenuTriggerFor]="countryMenu">
+            <div class="country-image">
+                <img class="avatar2" src="{{conutryImage}}">
+            </div>
+            <div class="uppercase">{{countryText}}</div>
+        </div>
+
+        <mat-menu #countryMenu="matMenu">
+            <button mat-menu-item (click)="selectLanguage('English')">
+                <div class="country-image">
+                    <img class="avatar2" src="../../assets/country/us.png">
+                    <span class="lang">English</span>
+                </div>
+            </button>
+            <button mat-menu-item (click)="selectLanguage('Turkish')">
+                <div class="country-image">
+                    <img class="avatar2" src="../../assets/country/tr.png">
+                    <span class="lang">Turkish</span>
+                </div>
+            </button>
+            <button mat-menu-item>
+                <span>Learn more</span>
+            </button>
+        </mat-menu>
+
+        <div class="toolbar-separator"></div>
+
+        <button mat-icon-button class="format-list-bulleted-button" (click)="onToggleRightSidenav()">
+            <mat-icon class="secondary-text material-icons-outlined">format_list_bulleted</mat-icon>
+        </button>
+
+        <div class="toolbar-separator"></div>
+
+        <div class="chat-button-div">
+            <button mat-icon-button class="chat-button">
+                <mat-icon class="chat-button-color material-icons-outlined">chat</mat-icon>
+            </button>
+        </div>
+
+    </mat-toolbar-row>
+
+    <mat-toolbar-row *ngIf="!isVisible===true" fxLayout="row" fxLayoutAlign="space-between center">
+        <input id="fuse-search-bar-input" fxFlex="90" placeholder="Search" type="text" autofocus>
+        <button fxFlex="10" mat-icon-button class="close-button" (click)="hideTextbox()">
+            <mat-icon class="secondary-text material-icons-outlined">close</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>

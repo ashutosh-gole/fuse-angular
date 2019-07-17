@@ -1,0 +1,65 @@
+<div fxLayout="column" fxLayoutAlign="space-between stretch">
+
+    <div fxFlex="30" class="main-widget" fxLayout="column" fxLayoutAlign="start stretch">
+        <div class="heading" fxLayout="row" fxLayoutAlign="start center">
+            <div>
+                <span class="h2">Visitors</span><br>
+                <span class="h5 secondary-text">Unique visitors by month</span>
+            </div>
+            <span class="example-spacer"></span>
+            <button mat-flat-button class="heading-btn" (click)="changeYear('2016')">2016</button>
+            <button mat-flat-button class="heading-btn" (click)="changeYear('2017')">2017</button>
+            <button mat-flat-button class="heading-btn" (click)="changeYear('2018')">2018</button>
+        </div>
+    </div>
+
+    <div>
+        <app-my-chart [data]="DATA"></app-my-chart>
+    </div>
+
+    <div fxFlex="70" class="content" fxLayout="row" fxLayoutAlign="space-between stretch">
+
+        <div class="leftContent" fxFlex="58" fxLayout="column" fxLayoutAlign="start stretch">
+
+            <div>
+                <div class="content-heading"> How are your active users trending over time? </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <app-conversion-bar fxFlex="30"></app-conversion-bar>
+                    <app-impressions-line fxFlex="30"></app-impressions-line>
+                    <app-visits-bar fxFlex="30"></app-visits-bar>
+                </div>
+            </div>
+
+            <div>
+                <div class="content-heading secondary-content-heading"> How many pages your users visit? </div>
+                <app-visitors-page-view></app-visitors-page-view>
+            </div>
+
+            <div>
+                <div class="content-heading secondary-content-heading"> Where are your users? </div>
+                <app-visitors-page-view></app-visitors-page-view>
+            </div>
+
+        </div>
+
+        <div class="rightContent" fxFlex="38" fxLayout="column" fxLayoutAlign="start stretch">
+
+            <div>
+                <div class="content-heading"> What are your top devices? </div>
+                <app-device-pie></app-device-pie>
+            </div>
+
+            <div>
+                <div class="content-heading secondary-content-heading"> How are your sales? </div>
+                <app-device-pie></app-device-pie>
+            </div>
+
+            <div>
+                <div class="content-heading secondary-content-heading"> What are your top campaigns? </div>
+                <app-campaigns></app-campaigns>
+            </div>
+
+        </div>
+
+    </div>
+</div>

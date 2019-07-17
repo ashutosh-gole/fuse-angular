@@ -1,0 +1,43 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.main-widget {
+    background-color: #1e88e5!important;
+    color: #fff!important;
+}
+
+.main-widget .heading {
+    padding: 24px!important;
+}
+
+.h2 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.h5 {
+    color: rgba(255,255,255,.7)!important;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.heading-btn {
+    background-color: #1e88e5!important;
+    color: #fff!important;
+}
+
+.content {
+    padding: 32px;
+    min-width: 0;
+}
+
+.content-heading {
+    font-size: 18px;
+    font-weight: 300;
+    padding-bottom: 24px!important;
+}
+
+.secondary-content-heading {
+    margin-top: 30px;
+}

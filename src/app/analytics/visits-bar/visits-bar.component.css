@@ -1,0 +1,27 @@
+.widget {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.widget-content {
+    padding: 10px 10px 0px 10px !important;
+}
+
+.secondary-text {
+    color: rgba(0,0,0,.54);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.secondary-number {
+    line-height: 1;
+    font-size: 54px;
+    font-weight: 300;
+    margin-top: 8px!important;
+
+}
+
+.orange-content {
+    color: #f44336!important;
+}

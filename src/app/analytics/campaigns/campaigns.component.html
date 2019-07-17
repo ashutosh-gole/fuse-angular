@@ -1,0 +1,66 @@
+<div class="main-widget" fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="heading" fxLayout="row" fxLayoutAlign="start center">
+        <div>
+            <span class="h2">Top campaigns</span>
+        </div>
+        <span class="example-spacer"></span>
+        <button mat-flat-button [matMenuTriggerFor]="menu">
+            <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu" yPosition="below">
+            <button mat-menu-item>
+                <mat-icon class="menu-button-color material-icons-outlined">check_box</mat-icon>
+                <span>Show Clicks</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon class="menu-button-color material-icons-outlined">check_box</mat-icon>
+                <span>Show Conversion</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon class="secondary-text material-icons-outlined">check_box_outline_blank</mat-icon>
+                <span>Show CPC</span>
+            </button>
+        </mat-menu>
+
+    </div>
+    <div>
+        <table class="simple clickable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Clicks</th>
+                    <th>Conv</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Holiday Travel</td>
+                    <td>3621</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td class="ng-tns-c39-37">Get Away Deals</td>
+                    <td>703</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td class="ng-tns-c39-37">Airfare</td>
+                    <td>532</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td class="ng-tns-c39-37">Vacation</td>
+                    <td>201</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td class="ng-tns-c39-37">Hotels</td>
+                    <td>94</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

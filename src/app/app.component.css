@@ -1,0 +1,346 @@
+/* for sidenav */
+/* .example-container {
+} */
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-drawer.example-sidenav {
+  background-color: #2d323e!important;
+  color: #fff!important;
+  width: 380px;
+  min-width: 280px;
+  max-width: 280px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,.35);
+}
+
+mat-drawer.quick-panel {
+  background-color: rgb(250, 250, 250);
+  color: rgba(0,0,0,.87);
+  width: 380px;
+  min-width: 280px;
+  max-width: 280px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,.35);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-top {
+  background-color: #1e2129!important;
+  color: #fff!important;
+  min-height: 64px;
+  max-height: 64px;
+  height: 64px;
+  padding: 12px 12px 12px 20px;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logo-text {
+  margin-left: 12px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: .4px;
+  line-height: normal;
+  color: rgba(255,255,255,.7)!important;
+}
+
+.leftDrawer-close {
+  padding: 0px 10px !important;
+}
+
+.user {
+  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 136px;
+    min-height: 136px;
+    max-height: 136px;
+    padding: 24px 0 64px;
+
+    background-color: #1e2129!important;
+    color: #fff!important;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 200;
+  color: #fff!important;
+
+  font-family: Muli,"Helvetica Neue",Arial,sans-serif;
+  line-height: 1.4!important;
+  letter-spacing: -.1px!important;
+}
+
+.email {
+  color: rgba(255,255,255,.5)!important;
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 8px!important;
+
+}
+
+.avatar-container {
+  position: absolute;
+  top: 92px;
+  border-radius: 50%;
+  padding: 8px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%;
+
+  background-color: #2d323e!important;
+  color: #fff!important;
+}
+
+.avatar-container .avatar {
+  width: 72px;
+  height: 72px;
+  margin: 0;
+}
+
+.avatar {
+    color: rgba(0,0,0,.87);
+}
+
+.avatar {
+    min-width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sidenav-content {
+  flex: 1 1 auto;
+  padding-top: 32px;
+}
+
+.sidenav-group {
+  margin-top: 20px !important;
+}
+
+.group-title {
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-left: 24px;
+  margin-top: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.hint-text {
+  color: rgba(255,255,255,.5)!important;
+}
+
+/* .group-items { 
+} */
+
+a button,a mat-expansion-panel{
+  width: 100%;
+  background-color: #2d323e;
+  color: #fff;
+  border-radius: 0 20px 20px 0;
+}
+
+mat-expansion-panel-header {
+  padding: 0 24px 0 5px !important;
+}
+
+.expansion-panel-body-text {
+  padding-left: 35px;
+}
+
+button {
+  text-align: left !important;
+}
+
+.list-item-text {
+  padding-left: 10px !important;
+}
+
+mat-icon {
+  font-size: 16px !important;
+}
+
+.list-item-badge1 {
+  background-color: rgb(244, 67, 54);
+  color: rgb(255, 255, 255);
+  margin-left: 150px;
+  padding: 4px 7px;
+  border-radius: 40%;
+  min-width: 20px;
+  min-height: 20px;
+  font-size: 11px;
+  align-items: center;
+  font-weight: 600;
+  }
+
+  .list-item-badge2 {
+    background-color: rgb(236, 12, 142);
+    color: rgb(255, 255, 255);
+    margin-left: 117px;
+    padding: 4px 7px;
+    border-radius: 40%;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 11px;
+    align-items: center;
+    font-weight: 600;
+    }
+
+    .list-item-badge3 {
+        background-color: rgb(9, 210, 97);
+        color: rgb(255, 255, 255);
+        margin-left: 145px;
+        padding: 4px 7px;
+        border-radius: 40%;
+        min-width: 20px;
+        min-height: 20px;
+        font-size: 11px;
+        align-items: center;
+        font-weight: 600;
+      }
+
+      .list-item-badge4 {
+        background-color: rgb(255, 111, 0);
+        color: rgb(255, 255, 255);
+        margin-left: 142px;
+        padding: 4px 7px;;
+        border-radius: 40%;
+        min-width: 20px;
+        min-height: 20px;
+        font-size: 11px;
+        align-items: center;
+        font-weight: 600;
+        }
+
+        .list-item-badge5 {
+          background-color: rgb(82, 94, 138);
+          color: rgb(255, 255, 255);
+          margin-left: 45px;
+          padding: 4px 7px;
+          border-radius: 40%;
+          min-width: 20px;
+          min-height: 20px;
+          font-size: 11px;
+          align-items: center;
+          font-weight: 600;
+          }
+
+
+ /* for quick panel */
+
+ .mat-subheader {
+    color: rgba(0,0,0,.54);
+    margin-top: 1px;
+    height: 48px;
+    line-height: 16px;
+    padding: 16px;
+    align-items: center;
+  }
+
+  .secondary-text {
+    color: rgba(0,0,0,.54);
+    font: 400 34px/40px Muli,Helvetica Neue,Arial,sans-serif;
+    margin: 0 0 14px;
+    padding: 16px!important;
+
+  }
+  
+  .mat-divider {
+    border-top-color: rgba(0,0,0,.12);
+    margin: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+
+  .mat-list-data {
+    padding: 16px 16px;
+  }
+
+  /* .mat-list-data-text {
+ 
+  } */
+
+  .mat-list-data-subtext {
+    color: rgba(0,0,0,.54);
+  }
+
+  .firstToggleText {
+    margin-right: 120px !important;
+  }
+
+  .secondToggleText {
+    margin-right: 125px !important;
+  }
+
+  .thirdToggleText {
+    margin-right: 100px !important;
+  }
+
+  .panel-setting-button {
+    background-color: #f44336!important;
+    color: #fff!important;
+    position: absolute;
+    top: 160px;
+    right: 70px;
+    width: 48px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0;
+    margin: 0;
+    pointer-events: auto;
+    opacity: .9;
+    z-index: 998;
+  }
+
+  .panel-setting-icon {
+    margin-top: 12px !important;
+    -webkit-animation: 3s linear infinite rotating;
+    animation: 3s linear infinite rotating;
+  }
+
+  @-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotating {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+  }
+
+  /* for progress bar */
+  mat-progress-bar {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99998;
+  }

@@ -1,0 +1,51 @@
+<mat-drawer #themeOptionsDrawer class="theme-options-panel" mode="over" position="end">
+    <!-- perfect scrollbar open -->
+    <div style="position: relative; max-width: 360px; max-height: 100%; padding-right: 24px;" class="ps"
+        [perfectScrollbar]="config">
+
+        <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title">Theme Options</span>
+            <button mat-icon-button (click)="closePanel()">
+                <mat-icon class="secondary-text material-icons-outlined">close</mat-icon>
+            </button>
+        </div>
+
+        <div class="group">
+            <h2>Color themes</h2>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" fxLayout="column"
+                fxLayoutAlign="space-around start">
+                <mat-radio-button value="theme-default">Default Light</mat-radio-button>
+                <mat-radio-button value="theme-yellow-light">Yellow Light</mat-radio-button>
+                <mat-radio-button value="theme-blue-gray-dark">Blue-Gray Dark</mat-radio-button>
+                <mat-radio-button value="theme-pink-dark">Pink Dark</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div class="group">
+            <h2>Layout Styles</h2>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" fxLayout="column"
+                fxLayoutAlign="space-around start">
+                <mat-radio-button value="vertical-layout-1"> Vertical Layout #1 </mat-radio-button>
+                <mat-radio-button value="vertical-layout-2"> Vertical Layout #2 </mat-radio-button>
+                <mat-radio-button value="vertical-layout-3"> Vertical Layout #3 </mat-radio-button>
+                <mat-radio-button value="horizontal-layout-1"> horizontal Layout #1 </mat-radio-button>
+            </mat-radio-group>
+
+            <div class="group">
+                <h2>Layout Width</h2>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    fxLayout="column" fxLayoutAlign="space-around start">
+                    <mat-radio-button value="fullwidth"> Fullwidth</mat-radio-button>
+                    <mat-radio-button value="boxed"> Boxed </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+
+        <div class="group">
+
+        </div>
+
+
+    </div>
+    <!-- perfect scrollbar close -->
+</mat-drawer>

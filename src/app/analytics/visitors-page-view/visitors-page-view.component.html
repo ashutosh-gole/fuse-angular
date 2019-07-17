@@ -1,0 +1,14 @@
+<div class="main-widget" fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="heading" fxLayout="row" fxLayoutAlign="start center">
+        <div>
+            <span class="h2">Visitors & Page views</span><br>
+        </div>
+        <span class="example-spacer"></span>
+        <button mat-flat-button class="heading-btn" (click)="changeDay('Yesterday')">Yesterday</button>
+        <button mat-flat-button class="heading-btn" (click)="changeDay('Today')">Today</button>
+    </div>
+    <div>
+        <app-visitors-area [visitorsDataInput]="visitorsData" [pageViewDataInput]="pageViewsData"></app-visitors-area>
+    </div>
+
+</div>

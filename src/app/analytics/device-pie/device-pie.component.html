@@ -1,0 +1,56 @@
+<div class="widget" fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="widget-content">
+        <div class="pie-text">Sessions by device</div>
+    </div>
+
+    <div>
+        <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions"
+            style="width: 100%; height: 300px; display: block;">
+        </highcharts-chart>
+    </div>
+
+    <div class="widget-content" fxLayout="row" fxLayoutAlign="space-around center">
+        <div>
+            <span class="secondary-text">Desktop</span><br>
+            <span class="secondary-number">92.9%</span><br>
+            <span class="orange-content">
+                <mat-icon>arrow_downward </mat-icon> <span>-0.6%</span>
+            </span>
+        </div>
+        <div>
+            <span class="secondary-text">Mobile</span><br>
+            <span class="secondary-number">6.1%</span><br>
+            <span class="green-content">
+                <mat-icon> arrow_upward </mat-icon> <span>0.7%</span>
+            </span>
+        </div>
+        <div>
+            <span class="secondary-text">Tablet</span><br>
+            <span class="secondary-number">1.1%</span><br>
+            <span class="green-content">
+                <mat-icon> arrow_upward </mat-icon> <span>0.1%</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="card-divider"></div>
+
+    <div class="botttom-content" fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <mat-form-field>
+                <mat-select value="7days">
+                    <mat-option value="today">Today</mat-option>
+                    <mat-option value="yesterday">Yesterday</mat-option>
+                    <mat-option value="7days">Last 7 days</mat-option>
+                    <mat-option value="28days">Last 28 days</mat-option>
+                    <mat-option value="90days">Last 90 days</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-flat-button>
+                <span class="bottom-button-text">OVERVIEW</span>
+            </button>
+        </div>
+    </div>
+</div>
