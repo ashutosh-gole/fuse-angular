@@ -38,9 +38,41 @@
     color: #039be5;
 }
 
+.table-content {
+    margin: 16px;
+}
+
 .simple {
     width: 100%;
     border: none;
     border-spacing: 0;
     text-align: left;
+}
+
+.clickable tbody tr {
+    cursor: pointer;
+}
+
+.clickable tbody tr:hover {
+    background: #f5f5f5;
+}
+
+table.simple thead tr th {
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    padding: 16px 8px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+table.simple tbody tr td {
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    padding: 16px 8px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.bottom-button-text {
+    color: #039be5;
 }

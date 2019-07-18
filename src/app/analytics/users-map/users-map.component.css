@@ -1,0 +1,12 @@
+.main-widget {
+    background-color: #fff!important;
+    color: rgba(0,0,0,.87);
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.1);
+    padding: 16px !important;
+}
+
+.main-widget-map-content {
+    width: 100% !important;
+    height: 700px !important;
+}

@@ -1,0 +1,49 @@
+<div class="sale-widget" fxLayout="column" fxLayoutAlign="start stretch">
+
+    <div class="main-widget">
+        <div class="main-widget-content" fxLayout="row" fxLayoutAlign="start center">
+            <div>
+                <span class="h2">Sales</span><br>
+                <span class="h5 secondary-text">Lifetime sum of your sales</span>
+            </div>
+            <span class="example-spacer"></span>
+            <button mat-flat-button [matMenuTriggerFor]="saleMenu" class="heading-btn">
+                <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+            </button>
+
+            <mat-menu #saleMenu="matMenu" yPosition="below">
+                <button mat-menu-item>
+                    <mat-icon class="menu-button-color material-icons-outlined">trending_up</mat-icon>
+                    <span>Trend</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="menu-button-color material-icons-outlined">history</mat-icon>
+                    <span>History</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="secondary-text material-icons-outlined">notifications_off</mat-icon>
+                    <span>Disable alerts</span>
+                </button>
+            </mat-menu>
+        </div>
+
+        <div class="main-widget-content" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="secondary-number">12,540</div>
+            <div>
+                <mat-icon>trending_up</mat-icon>
+                <span> &nbsp; 321 &nbsp; (2.05%)</span>
+            </div>
+        </div>
+
+        <div class="main-widget-content" fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-flat-button class="heading-btn" (click)="changeDates('1DAY')" [class.active-button]="isActive" >1DAY</button>
+            <button mat-flat-button class="heading-btn" (click)="changeDates('1WEEK')" [class.active-button]="isActive">1WEEK</button>
+            <button mat-flat-button class="heading-btn" (click)="changeDates('1MONTH')" [class.active-button]="isActive">1MONTH</button>
+        </div>
+    </div>
+
+    <div>
+        <app-sales-line [salesDataInput]="salesData"></app-sales-line>
+    </div>
+
+</div>

@@ -36,6 +36,9 @@ import { DevicePieComponent } from './analytics/device-pie/device-pie.component'
 import { VisitorsPageViewComponent } from './analytics/visitors-page-view/visitors-page-view.component';
 import { VisitorsAreaComponent } from './analytics/visitors-page-view/visitors-area/visitors-area.component';
 import { CampaignsComponent } from './analytics/campaigns/campaigns.component';
+import { SalesInfoComponent } from './analytics/sales-info/sales-info.component';
+import { SalesLineComponent } from './analytics/sales-info/sales-line/sales-line.component';
+import { UsersMapComponent } from './analytics/users-map/users-map.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,10 @@ import { CampaignsComponent } from './analytics/campaigns/campaigns.component';
     DevicePieComponent,
     VisitorsPageViewComponent,
     VisitorsAreaComponent,
-    CampaignsComponent
+    CampaignsComponent,
+    SalesInfoComponent,
+    SalesLineComponent,
+    UsersMapComponent
   ],
   imports: [
     BrowserModule,
