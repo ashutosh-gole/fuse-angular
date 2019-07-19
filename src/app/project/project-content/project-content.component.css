@@ -1,0 +1,41 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.main-widget {
+    padding: 50px 24px 0px 24px !important;
+    background-color: #039be5!important;
+    color: #fff!important;
+}
+
+.h2 {
+    padding: 24px 0px !important;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.heading-btn {
+    color: #fff!important;
+}
+
+.project-menu-content {
+    padding: 24px 0px 0px 0px !important;
+}
+
+.selected-project {
+    background: rgba(0,0,0,.12);
+    color: #fff;
+    padding: 8px 16px;
+    height: 40px;
+    line-height: 24px;
+    font-size: 16px;
+    border-radius: 8px 0 0;
+}
+
+.project-selector {
+    margin-left: 1px;
+    background: rgba(0,0,0,.12);
+    border-radius: 0 8px 0 0;
+    width: 40px;
+    height: 40px;
+}

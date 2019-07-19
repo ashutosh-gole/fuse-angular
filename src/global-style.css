@@ -68,3 +68,11 @@ div .mat-expansion-panel-body {
 .mat-progress-bar {
   position: absolute !important;
 }
+/* for mat-tab color */
+.mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: #3c4252;
+}
+
+.project-widget .mat-tab-label-container {
+  padding: 0 24px;
+}

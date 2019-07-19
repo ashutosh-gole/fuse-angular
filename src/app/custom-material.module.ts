@@ -11,7 +11,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
 
 
 import {
@@ -38,6 +39,7 @@ import {
     MatSelectModule,
     MatTabsModule,
     MatProgressBarModule,
+    MatTableModule,
 
 
     MatButtonModule,
@@ -60,6 +62,7 @@ import {
     MatSelectModule,
     MatTabsModule,
     MatProgressBarModule,
+    MatTableModule,
 
 
 

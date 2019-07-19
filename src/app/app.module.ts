@@ -19,15 +19,15 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 import { AppComponent } from './app.component';
+import { HighchartsChartComponent } from 'highcharts-angular';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
-import { AnalyticsComponent } from './analytics/analytics.component';
-import { ProjectComponent } from './project/project.component';
+
 import { CalendarComponent } from './calendar/calendar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ThemeOptionsComponent } from './theme-options/theme-options.component';
 
-import { HighchartsChartComponent } from 'highcharts-angular';
+import { AnalyticsComponent } from './analytics/analytics.component';
 import { MyChartComponent } from './analytics/my-chart/my-chart.component';
 import { ConversionBarComponent } from './analytics/conversion-bar/conversion-bar.component';
 import { ImpressionsLineComponent } from './analytics/impressions-line/impressions-line.component';
@@ -40,13 +40,19 @@ import { SalesInfoComponent } from './analytics/sales-info/sales-info.component'
 import { SalesLineComponent } from './analytics/sales-info/sales-line/sales-line.component';
 import { UsersMapComponent } from './analytics/users-map/users-map.component';
 
+import { ProjectComponent } from './project/project.component';
+import { ProjectContentComponent } from './project/project-content/project-content.component';
+import { ProjectTeamMembersComponent } from './project/project-content/project-team-members/project-team-members.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    // Header Toolbar Component
     AppHeaderComponent,
+    // Footer Toolbar Component
     AppFooterComponent,
+    // Analytics Page Component
     AnalyticsComponent,
-    ProjectComponent,
     CalendarComponent,
     PageNotFoundComponent,
     ThemeOptionsComponent,
@@ -61,7 +67,12 @@ import { UsersMapComponent } from './analytics/users-map/users-map.component';
     CampaignsComponent,
     SalesInfoComponent,
     SalesLineComponent,
-    UsersMapComponent
+    UsersMapComponent,
+    // Project Page Component
+    ProjectComponent,
+    ProjectContentComponent,
+    ProjectTeamMembersComponent
+
   ],
   imports: [
     BrowserModule,
