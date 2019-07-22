@@ -391,32 +391,23 @@ export class AppComponent implements OnInit {
   public onSerachMenuOption() {
 
     if (this.searchName != "") {
-      
+
       this.menuLists = this.menuLists.filter(res => {
 
         if (res.displayName.toLowerCase().match(this.searchName.toLowerCase().trim())) {
           return res;
         }
-        // if (res.hasSubMenu == true) {
-        //   this.menuLists = res.subMenuList.filter(result => {
-
-        //     if (result.displayName.toLowerCase().match(this.searchName.toLowerCase())) {
-        //       return res;
-        //     }
-
-        //   });
-        // }
-
       });
-      // for(let i=0; i<this.menuLists.length;i++) {
-      //    if(this.menuLists[i].displayName.toLowerCase().match(this.searchName.toLowerCase().trim()))  {
-      //      this.menuLists.push(this.menuLists[i]);
-      //    }
-      // }
+
     }
     else {
       this.menuLists = this.tempMenuLists;
     }
+
+
+    // for (let item of this.tempMenuLists) {
+    //   console.log(item.displayName);
+    // }
 
   }
 
