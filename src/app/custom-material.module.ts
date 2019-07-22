@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 
 
 import {
@@ -40,6 +41,7 @@ import {
     MatTabsModule,
     MatProgressBarModule,
     MatTableModule,
+    MatInputModule,
 
 
     MatButtonModule,
@@ -63,6 +65,7 @@ import {
     MatTabsModule,
     MatProgressBarModule,
     MatTableModule,
+    MatInputModule,
 
 
 

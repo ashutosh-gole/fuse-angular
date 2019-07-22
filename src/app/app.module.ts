@@ -43,6 +43,7 @@ import { UsersMapComponent } from './analytics/users-map/users-map.component';
 import { ProjectComponent } from './project/project.component';
 import { ProjectContentComponent } from './project/project-content/project-content.component';
 import { ProjectTeamMembersComponent } from './project/project-content/project-team-members/project-team-members.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,9 @@ import { ProjectTeamMembersComponent } from './project/project-content/project-t
     // Project Page Component
     ProjectComponent,
     ProjectContentComponent,
-    ProjectTeamMembersComponent
+    ProjectTeamMembersComponent,
+    // Dashboard Page Component
+    DashboardComponent
 
   ],
   imports: [

@@ -1,10 +1,5 @@
 <div>
 
-    <div *ngIf="loading==true">
-        <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
-    </div>
-
-
     <mat-drawer-container class="example-container" fullscreen>
 
         <mat-drawer #leftDrawer class="example-sidenav" mode="side" opened>
@@ -37,6 +32,15 @@
                         </div>
                     </div>
 
+                    <div>
+                        <form class="menu-form">
+                            <mat-form-field class="menu-form-full-width">
+                                <input matInput placeholder="Search Menu Option" name="serachbox"
+                                    [(ngModel)]="searchName" (input)="onSerachMenuOption()">
+                            </mat-form-field>
+                        </form>
+                    </div>
+
                     <div class="sidenav-content">
 
                         <!-- APPLICATIONS GROUP -->
@@ -44,575 +48,76 @@
                             <div class="group-title">
                                 <span class="hint-text">Applications</span>
                             </div>
-                            <div class="group-items">
 
-                                <a class="list-item">
+                            <div class="group-items" *ngFor="let item of menuLists">
+
+                                <!-- if submenu present -->
+                                <a class="list-item" *ngIf="item.hasSubMenu==true">
                                     <mat-expansion-panel (opened)="true" (closed)="false">
                                         <mat-expansion-panel-header class="specific-class">
                                             <a>
                                                 <button mat-flat-button>
-                                                    <mat-icon class="material-icons-outlined">dashboard</mat-icon>
-                                                    <span class="list-item-text">Dashboards</span>
+                                                    <mat-icon class="material-icons-outlined">{{item.displayIcon}}
+                                                    </mat-icon>
+                                                    <span class="list-item-header-text">{{item.displayName}}</span>
+                                                    <span *ngIf="item.badgeValue != null"
+                                                        [class.list-item-badge1]="item.badgeValue != null">{{item.badgeValue}}</span>
                                                 </button>
                                             </a>
                                         </mat-expansion-panel-header>
 
-                                        <a routerLink="/analytics" routerLinkActive="active">
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Analytics</span>
-                                            </button>
-                                        </a>
-                                        <a routerLink="/project" routerLinkActive="active">
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Project</span>
-                                            </button>
-                                        </a>
+                                        <a *ngFor="let children of item.subMenuList">
 
-                                    </mat-expansion-panel>
-                                </a>
+                                            <!-- if nested submenu present -->
+                                            <a class="list-item" *ngIf="children.hasSubMenu==true">
+                                                <mat-expansion-panel (opened)="true" (closed)="false">
+                                                    <mat-expansion-panel-header class="specific-class">
+                                                        <a>
+                                                            <button mat-flat-button>
+                                                                <!-- <mat-icon class="material-icons-outlined">dashboard</mat-icon> -->
+                                                                <span
+                                                                    class="list-item-subchildren-header-text">{{children.displayName}}</span>
+                                                            </button>
+                                                        </a>
+                                                    </mat-expansion-panel-header>
 
-                                <a class="list-item" routerLink="/calendar" routerLinkActive="active">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">today</mat-icon>
-                                        <span class="list-item-text">Calender</span>
-                                    </button>
-                                </a>
-
-
-                                <a class="list-item">
-                                    <mat-expansion-panel (opened)="true" (closed)="false">
-                                        <mat-expansion-panel-header>
-                                            <a>
-                                                <button mat-flat-button>
-                                                    <mat-icon class="material-icons-outlined">shopping_cart</mat-icon>
-                                                    <span class="list-item-text">E-Commerce</span>
-                                                </button>
-                                            </a>
-                                        </mat-expansion-panel-header>
-
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Products</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Product Detail</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Orders</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Order Detail</span>
-                                            </button>
-                                        </a>
-
-                                    </mat-expansion-panel>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">school</mat-icon>
-                                        <span class="list-item-text">Academy</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">email</mat-icon>
-                                        <span class="list-item-text">Mail</span>
-                                        <span class="list-item-badge1">25</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">email</mat-icon>
-                                        <span class="list-item-text">Mail Ngrx</span>
-                                        <span class="list-item-badge2">13</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">chat</mat-icon>
-                                        <span class="list-item-text">Chat</span>
-                                        <span class="list-item-badge3">13</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">folder</mat-icon>
-                                        <span class="list-item-text">File Manager</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">account_box</mat-icon>
-                                        <span class="list-item-text">Contacts</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">check_box</mat-icon>
-                                        <span class="list-item-text">To-Do</span>
-                                        <span class="list-item-badge4">3</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">assessment</mat-icon>
-                                        <span class="list-item-text">Scrumboard</span>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- PAGES GROUP -->
-                        <div class="sidenav-group">
-                            <div class="group-title">
-                                <span class="hint-text">Pages</span>
-                            </div>
-                            <div class="group-items">
-                                <a class="list-item">
-                                    <mat-expansion-panel (opened)="true" (closed)="false">
-                                        <mat-expansion-panel-header>
-                                            <a>
-                                                <button mat-flat-button>
-                                                    <mat-icon class="material-icons-outlined">lock</mat-icon>
-                                                    <span class="list-item-text">Authentication</span>
-                                                    <span class="list-item-badge5">10</span>
-                                                </button>
-                                            </a>
-                                        </mat-expansion-panel-header>
-
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Login</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Login v2</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Register</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Register v2</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Forgot Password</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Forgot Password v2</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Reset Password</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Reset Password v2</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Lock Screen</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Mail Confirmation</span>
-                                            </button>
-                                        </a>
-
-                                    </mat-expansion-panel>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">alarm</mat-icon>
-                                        <span class="list-item-text">Coming Soon</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <mat-expansion-panel (opened)="true" (closed)="false">
-                                        <mat-expansion-panel-header>
-                                            <a>
-                                                <button mat-flat-button>
-                                                    <mat-icon class="material-icons-outlined">error_outline</mat-icon>
-                                                    <span class="list-item-text">Errors</span>
-                                                </button>
-                                            </a>
-                                        </mat-expansion-panel-header>
-
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">404</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">500</span>
-                                            </button>
-                                        </a>
-
-                                    </mat-expansion-panel>
-                                </a>
-
-                                <a class="list-item">
-                                    <mat-expansion-panel (opened)="true" (closed)="false">
-                                        <mat-expansion-panel-header>
-                                            <a>
-                                                <button mat-flat-button>
-                                                    <mat-icon class="material-icons-outlined">receipt</mat-icon>
-                                                    <span class="list-item-text">Invoice</span>
-                                                </button>
-                                            </a>
-                                        </mat-expansion-panel-header>
-
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Modern</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Compact</span>
-                                            </button>
-                                        </a>
-
-                                    </mat-expansion-panel>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">build</mat-icon>
-                                        <span class="list-item-text">Maintenance</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <mat-expansion-panel (opened)="true" (closed)="false">
-                                        <mat-expansion-panel-header>
-                                            <a>
-                                                <button mat-flat-button>
-                                                    <mat-icon class="material-icons-outlined">attach_money</mat-icon>
-                                                    <span class="list-item-text">Pricing</span>
-                                                </button>
-                                            </a>
-                                        </mat-expansion-panel-header>
-
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Style 1</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Style 2</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Style 3</span>
-                                            </button>
-                                        </a>
-
-                                    </mat-expansion-panel>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">person</mat-icon>
-                                        <span class="list-item-text">Profile</span>
-                                    </button>
-                                </a>
-
-
-                                <a class="list-item">
-                                    <mat-expansion-panel (opened)="true" (closed)="false">
-                                        <mat-expansion-panel-header>
-                                            <a>
-                                                <button mat-flat-button>
-                                                    <mat-icon class="material-icons-outlined">search</mat-icon>
-                                                    <span class="list-item-text">Search</span>
-                                                </button>
-                                            </a>
-                                        </mat-expansion-panel-header>
-
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Classic</span>
-                                            </button>
-                                        </a>
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Modern</span>
-                                            </button>
-                                        </a>
-
-                                    </mat-expansion-panel>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">help</mat-icon>
-                                        <span class="list-item-text">Faq</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">import_contacts</mat-icon>
-                                        <span class="list-item-text">Knowledge Base</span>
-                                    </button>
-                                </a>
-
-
-                            </div>
-                        </div>
-
-                        <!-- USER INTERFACE GROUP -->
-                        <div class="sidenav-group">
-                            <div class="group-title">
-                                <span class="hint-text">User Interface</span>
-                            </div>
-                            <div class="group-items">
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">crop_portrait</mat-icon>
-                                        <span class="list-item-text">Cards</span>
-                                    </button>
-                                </a>
-
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">web_asset</mat-icon>
-                                        <span class="list-item-text">Forms</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">photo</mat-icon>
-                                        <span class="list-item-text">Icons</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">text_fields</mat-icon>
-                                        <span class="list-item-text">Typography</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">help</mat-icon>
-                                        <span class="list-item-text">Helper Classes</span>
-                                    </button>
-                                </a>
-
-                                <a class="list-item">
-                                    <mat-expansion-panel (opened)="true" (closed)="false">
-                                        <mat-expansion-panel-header>
-                                            <a>
-                                                <button mat-flat-button>
-                                                    <mat-icon class="material-icons-outlined">view_quilt</mat-icon>
-                                                    <span class="list-item-text">Page Layouts</span>
-                                                </button>
-                                            </a>
-                                        </mat-expansion-panel-header>
-
-                                        <a>
-
-                                            <mat-expansion-panel (opened)="true" (closed)="false">
-                                                <mat-expansion-panel-header>
-                                                    <a>
+                                                    <a *ngFor="let subchildren of children.subMenuList">
                                                         <button mat-flat-button>
-                                                            <span class="expansion-panel-body-text">Carded</span>
+                                                            <span
+                                                                class="list-item-subchildren-text">{{subchildren.displayName}}</span>
                                                         </button>
                                                     </a>
-                                                </mat-expansion-panel-header>
 
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Full Width #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Full Width #2</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Full Width Tabbed
-                                                            #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Full Width Tabbed
-                                                            #2</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Left Sidebar #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Left Sidebar #2</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Left Sidebar Tabbed
-                                                            #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Left Sidebar Tabbed
-                                                            #2</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Right Sidebar #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Right Sidebar #2</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Right Sidebar Tabbed
-                                                            #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Right Sidebar Tabbed
-                                                            #2</span>
-                                                    </button>
-                                                </a>
+                                                </mat-expansion-panel>
+                                            </a>
 
-                                            </mat-expansion-panel>
+                                            <!-- if nested submenu not present -->
+                                            <a class="list-item" *ngIf="children.hasSubMenu==false">
+                                                <button mat-flat-button>
+                                                    <span class="list-item-children-text">{{children.displayName}}</span>
+                                                    <span *ngIf="children.badgeValue != null"
+                                                        [class.list-item-badge1]="children.badgeValue != null">{{children.badgeValue}}</span>
+                                                </button>
+                                            </a>
 
                                         </a>
-
-                                        <a>
-
-                                            <mat-expansion-panel (opened)="true" (closed)="false">
-                                                <mat-expansion-panel-header>
-                                                    <a>
-                                                        <button mat-flat-button>
-                                                            <span class="expansion-panel-body-text">Simple</span>
-                                                        </button>
-                                                    </a>
-                                                </mat-expansion-panel-header>
-
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Full Width #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Full Width Tabbed
-                                                            #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Left Sidebar #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Left Sidebar #2</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Left Sidebar #3</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Left Sidebar #4</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Right Sidebar #1</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Right Sidebar #2</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Right Sidebar #3</span>
-                                                    </button>
-                                                </a>
-                                                <a>
-                                                    <button mat-flat-button>
-                                                        <span class="expansion-panel-body-text">Right Sidebar #4</span>
-                                                    </button>
-                                                </a>
-
-                                            </mat-expansion-panel>
-
-                                        </a>
-
-                                        <a>
-                                            <button mat-flat-button>
-                                                <span class="expansion-panel-body-text">Blank</span>
-                                            </button>
-                                        </a>
-
                                     </mat-expansion-panel>
                                 </a>
 
-                                <a class="list-item">
+                                <!-- if submenu not present -->
+                                <a class="list-item" *ngIf="item.hasSubMenu==false">
                                     <button mat-flat-button>
-                                        <mat-icon class="material-icons-outlined">color_lens</mat-icon>
-                                        <span class="list-item-text">Colors</span>
+                                        <mat-icon class="material-icons-outlined">{{item.displayIcon}}</mat-icon>
+                                        <span class="list-item-text">{{item.displayName}}</span>
+                                        <span *ngIf="item.badgeValue != null"
+                                            [class.list-item-badge1]="item.badgeValue != null">{{item.badgeValue}}</span>
                                     </button>
                                 </a>
 
                             </div>
+
                         </div>
+
                     </div>
 
                 </div>

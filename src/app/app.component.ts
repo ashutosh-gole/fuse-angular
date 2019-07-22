@@ -1,14 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import {
-  Router,
-  // import as RouterEvent to avoid confusion with the DOM Event
-  Event as RouterEvent,
-  NavigationStart,
-  NavigationEnd,
-  NavigationCancel,
-  NavigationError
-} from '@angular/router'
-
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ThemeOptionService } from './services/theme-option.service';
 
 @Component({
@@ -16,43 +6,418 @@ import { ThemeOptionService } from './services/theme-option.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  // component interaction using @ViewChild
-  // @ViewChild(ThemeOptionsComponent, { static: false }) childComponent: ThemeOptionsComponent;
+  menuLists = [];
+  tempMenuLists = [
+    {
+      hasSubMenu: true,
+      displayIcon: "dashboard",
+      displayName: "Dashboard",
+      subMenuList: [
+        {
+          hasSubMenu: false,
+          displayName: "Analytics"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Project"
+        }
+      ]
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "today",
+      displayName: "Calendar"
+    },
+    {
+      hasSubMenu: true,
+      displayIcon: "shopping_cart",
+      displayName: "E-Commerce",
+      subMenuList: [
+        {
+          hasSubMenu: false,
+          displayName: "Products"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Product Detail"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Orders"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Order Detail"
+        }
+      ]
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "school",
+      displayName: "Academy"
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "email",
+      displayName: "Mail",
+      badgeValue: 25
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "email",
+      displayName: "Mail Ngrx",
+      badgeValue: 13
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "chat",
+      displayName: "Chat",
+      badgeValue: 13
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "folder",
+      displayName: "File Manager"
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "check_box",
+      displayName: "To-Do",
+      badgeValue: 3
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "assessment",
+      displayName: "Scrumboard"
+    },
+    {
+      hasSubMenu: true,
+      displayIcon: "lock",
+      displayName: "Authentication",
+      badgeValue: 10,
+      subMenuList: [
+        {
+          hasSubMenu: false,
+          displayName: "Login"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Login v2"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Register"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Register v2"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Forgot Password"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Forgot Password v2"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Reset Password"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Reset Password v2"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Lock Screen"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Mail Confirmation"
+        }
+      ]
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "alarm",
+      displayName: "Coming Soon"
+    },
+    {
+      hasSubMenu: true,
+      displayIcon: "error_outline",
+      displayName: "Errors",
+      subMenuList: [
+        {
+          hasSubMenu: false,
+          displayName: "404"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "500"
+        }
+      ]
+    },
+    {
+      hasSubMenu: true,
+      displayIcon: "receipt",
+      displayName: "Invoice",
+      subMenuList: [
+        {
+          hasSubMenu: false,
+          displayName: "Modern"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Compact"
+        }
+      ]
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "build",
+      displayName: "Maintenance"
+    },
+    {
+      hasSubMenu: true,
+      displayIcon: "attach_money",
+      displayName: "Pricing",
+      subMenuList: [
+        {
+          hasSubMenu: false,
+          displayName: "Style 1"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Style 2"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Style 3"
+        }
+      ]
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "person",
+      displayName: "Profile"
+    },
+    {
+      hasSubMenu: true,
+      displayIcon: "search",
+      displayName: "Search",
+      subMenuList: [
+        {
+          hasSubMenu: false,
+          displayName: "Classic"
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Modern"
+        }
+      ]
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "help",
+      displayName: "Faq"
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "import_contacts",
+      displayName: "Knowledge Base"
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "dashboard",
+      displayName: "Cards"
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "crop_portrait",
+      displayName: "Forms"
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "photo",
+      displayName: "Icons"
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "text_fields",
+      displayName: "Typography"
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "help",
+      displayName: "Helper Classes"
+    },
+    {
+      hasSubMenu: true,
+      displayIcon: "view_quilt",
+      displayName: "Page Layouts",
+      subMenuList: [
+        {
+          hasSubMenu: true,
+          displayName: "Carded",
+          badgeValue: 12,
+          subMenuList: [
+            {
+              hasSubMenu: false,
+              displayName: "Full Width #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Full Width #2"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Full Width Tabbed #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Full Width Tabbed #2"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Left Sidebar #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Left Sidebar #2"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Left Sidebar Tabbed #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Left Sidebar Tabbed #2"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Right Sidebar #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Right Sidebar #2"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Right Sidebar Tabbed #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Right Sidebar Tabbed #2"
+            }
+          ]
+        },
+        {
+          hasSubMenu: true,
+          displayName: "Simple",
+          badgeValue: 10,
+          subMenuList: [
+            {
+              hasSubMenu: false,
+              displayName: "Full Width #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Full Width Tabbed #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Left Sidebar #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Left Sidebar #2"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Left Sidebar #3"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Left Sidebar #4"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Right Sidebar #1"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Right Sidebar #2"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Right Sidebar #3"
+            },
+            {
+              hasSubMenu: false,
+              displayName: "Right Sidebar #4"
+            }
+          ]
+        },
+        {
+          hasSubMenu: false,
+          displayName: "Blank"
+        }
+      ]
+    },
+    {
+      hasSubMenu: false,
+      displayIcon: "color_lens",
+      displayName: "Colors"
+    }
+  ];
 
-  // Sets initial value to true to show loading spinner on first load
-  loading = true;
+  searchName;
   today: number = Date.now();
 
-  constructor(private themeOptionService: ThemeOptionService, private router: Router) {
+  constructor(private themeOptionService: ThemeOptionService) { }
 
-    router.events.subscribe((event: RouterEvent) => {
-      this.navigationInterceptor(event)
-    })
-
+  ngOnInit() {
+    this.menuLists = this.tempMenuLists;
+    // console.log(this.menuLists);
   }
-
-  // Shows and hides the loading spinner during RouterEvent changes
-  navigationInterceptor(event: RouterEvent): void {
-    if (event instanceof NavigationStart) {
-      this.loading = true
-    }
-    if (event instanceof NavigationEnd) {
-      this.loading = false
-    }
-    // Set loading state to false in both of the below events to hide the spinner in case a request fails
-    if (event instanceof NavigationCancel) {
-      this.loading = false
-    }
-    if (event instanceof NavigationError) {
-      this.loading = false
-    }
-  }
-
 
   public openPanel() {
     this.themeOptionService.open();
+  }
+
+  public onSerachMenuOption() {
+
+    if (this.searchName != "") {
+      
+      this.menuLists = this.menuLists.filter(res => {
+
+        if (res.displayName.toLowerCase().match(this.searchName.toLowerCase().trim())) {
+          return res;
+        }
+        // if (res.hasSubMenu == true) {
+        //   this.menuLists = res.subMenuList.filter(result => {
+
+        //     if (result.displayName.toLowerCase().match(this.searchName.toLowerCase())) {
+        //       return res;
+        //     }
+
+        //   });
+        // }
+
+      });
+      // for(let i=0; i<this.menuLists.length;i++) {
+      //    if(this.menuLists[i].displayName.toLowerCase().match(this.searchName.toLowerCase().trim()))  {
+      //      this.menuLists.push(this.menuLists[i]);
+      //    }
+      // }
+    }
+    else {
+      this.menuLists = this.tempMenuLists;
+    }
+
   }
 
 }

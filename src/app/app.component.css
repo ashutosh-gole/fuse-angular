@@ -127,7 +127,7 @@ mat-drawer.quick-panel {
 
 .sidenav-content {
   flex: 1 1 auto;
-  padding-top: 32px;
+  /* padding-top: 32px; */
 }
 
 .sidenav-group {
@@ -170,9 +170,7 @@ button {
   text-align: left !important;
 }
 
-.list-item-text {
-  padding-left: 10px !important;
-}
+
 
 mat-icon {
   font-size: 16px !important;
@@ -343,4 +341,37 @@ mat-icon {
     right: 0;
     width: 100%;
     z-index: 99998;
+  }
+
+  .menu-form {
+    width: 100%;
+    margin-top: 30px !important;
+  }
+
+  .menu-form-full-width {
+    width: 100%;
+  }
+
+  mat-expansion-panel-header mat-icon {
+  margin-left: -5px;
+  }
+
+  .list-item-header-text {
+    padding-left: 10px !important;
+  }
+
+  .list-item-text {
+    padding-left: 10px !important;
+  }
+
+  .list-item-children-text {
+    padding-left: 32px !important;
+  }
+
+  .list-item-subchildren-text {
+    padding-left: 32px !important;
+  }
+
+  .list-item-subchildren-header-text {
+    padding-left: 28px !important;
   }
