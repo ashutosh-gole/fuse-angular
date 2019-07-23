@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ThemeOptionService } from './services/theme-option.service';
+import { longStackSupport } from 'q';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
         {
           hasSubMenu: false,
           show: true,
-          displayName: "Analytics"
+          displayName: "Dashboard"
         },
         {
           hasSubMenu: false,
@@ -277,7 +278,7 @@ export class AppComponent implements OnInit {
     {
       hasSubMenu: false,
       show: true,
-      displayIcon: "dashboard",
+      displayIcon: "help",
       displayName: "Cards"
     },
     {
@@ -458,111 +459,37 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.menuLists = this.tempMenuLists;
+    // this.onSerachMenuOption();
     // console.log(this.menuLists);
   }
 
   public openPanel() {
     this.themeOptionService.open();
   }
- /*
-  public onSerachMenuOption() {
-
-    // if (this.searchName != "") {
-
-    //   this.menuLists = this.menuLists.filter(res => {
-
-    //     if (res.displayName.toLowerCase().match(this.searchName.toLowerCase().trim())) {
-    //       return res;
-    //     }
-    //     else if (res.hasSubMenu == true) {
-
-    //       for (let children of res.subMenuList) {
-    //         if (children.displayName.toLowerCase().match(this.searchName.toLowerCase().trim())) {
-    //           return res.subMenuList
-    //         }
-    //       }
-
-    //     }
-
-
-    //   });
-
-    // }
-    // else {
-    //   this.menuLists = this.tempMenuLists;
-    // }
-
-    let arr = this.findObj(this.tempMenuLists, this.searchName)
-
-    if (arr) {
-      console.log(arr);
-      console.log("successfully find");
-    }
-  } //function close
-
-  public findObj(obj, searchName) {
-    let result;
-    for (let i in obj) {
-
-      console.log(obj);
-      if (obj.displayName === searchName) {
-        console.log("in if part");
-        return obj;
-      }
-      else {
-        if (typeof obj[i] === 'object') {
-          result = this.findObj(obj[i], searchName);
-          console.log("in else part");
-
-          if (result) {
-            console.log("in result");
-            return result;
-          }
-        }
-      }
-    } //for
-    return result;
-  */
 
 
  public onSerachMenuOption() {
- this.menuLists.filter(menu => {
-  // if(menu.displayName.toLowerCase().includes(this.searchName.trim().toLowerCase())){
-  //   menu.show = true;
-  // } else {
-  //   menu.show = false;
-  // }
-     menu = this.checkVisibility(menu);
- })
-// for (let index = 0; index < this.menuLists.length; index++) {
-//   this.menuLists[index] = this.checkVisibility(this.menuLists[index])
-//   }
- }
+    if(this.searchName.trim() !== ''){
+      const containsDeep = (text) => (value) => {
+        if(!value) return false;
+        const valueType = typeof value;
+        
+        if(valueType === 'string') {
+          return value.toLowerCase().indexOf(text.toLowerCase()) > -1;
+        }
+        if(Array.isArray(value)) {
+          return value.some(containsDeep(text));
+        }
+        if(valueType === 'object') {
+          return Object.values(value).some(containsDeep(text));
+        }
+        return false;
+      };
 
- checkVisibility(menu){
-   console.log('Menu => ',menu);
-   
-   if(menu.hasSubMenu){
-    return this.checkVisibility(menu.subMenuList)
-   } else {
-     if(menu.hasOwnProperty('displayName')) {
-
-    
-     if(menu.displayName.toLowerCase().includes(this.searchName.trim().toLowerCase())){
-    menu.show = true;
-    return menu;
-  }
-  } else {
-    menu.show = false;
-    return menu;  
-  }
-   }
-  // if(menu && menu.displayName.includes(this.searchName.trim().toLowerCase())){
-  //   menu.show = true;
-  //   return menu;
-  //  } else if(menu.hasSubMenu) {
-  //   return this.checkVisibility(menu.subMenuList)
-  // }
+      this.menuLists = this.menuLists.filter(containsDeep(this.searchName)); 
+    }else{
+      this.menuLists = this.tempMenuLists;
+    }  
  }
 
 }
