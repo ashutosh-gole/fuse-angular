@@ -1,0 +1,32 @@
+.widget {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.1);
+    margin-top: 15px;
+}
+
+.current-day-time {
+    padding: 16px 0px 16px 16px !important;
+}
+
+.current-day-time-text {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.current-date {
+    padding: 24px;
+}
+
+.current-month, .current-year {
+    color: rgba(0,0,0,.54);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.current-day {
+    color: rgba(0,0,0,.54);
+    font-size: 72px;
+    font-weight: 400;
+}
+

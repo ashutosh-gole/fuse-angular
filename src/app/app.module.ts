@@ -43,7 +43,12 @@ import { UsersMapComponent } from './analytics/users-map/users-map.component';
 import { ProjectComponent } from './project/project.component';
 import { ProjectContentComponent } from './project/project-content/project-content.component';
 import { ProjectTeamMembersComponent } from './project/project-content/project-team-members/project-team-members.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { TimeDateComponent } from './project/time-date/time-date.component';
+import { CityWeatherComponent } from './project/city-weather/city-weather.component';
+import { ProjectHomeComponent } from './project/project-content/project-home/project-home.component';
+import { BudgetSummaryComponent } from './project/project-content/budget-summary/budget-summary.component';
+import { BudgetDistributionPieComponent } from './project/project-content/budget-summary/budget-distribution-pie/budget-distribution-pie.component';
+import { BudgetDetailComponent } from './project/project-content/budget-summary/budget-detail/budget-detail.component';
 
 @NgModule({
   declarations: [
@@ -73,8 +78,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ProjectComponent,
     ProjectContentComponent,
     ProjectTeamMembersComponent,
-    // Dashboard Page Component
-    DashboardComponent
+    TimeDateComponent,
+    CityWeatherComponent,
+    ProjectHomeComponent,
+    BudgetSummaryComponent,
+    BudgetDistributionPieComponent,
+    BudgetDetailComponent
 
   ],
   imports: [

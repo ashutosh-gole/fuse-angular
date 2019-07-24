@@ -1,0 +1,28 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.budget-detail-widget {
+    margin: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.heading-content {
+    padding: 24px!important;
+    margin-bottom: 8px!important;
+    background-color: #fff;
+}
+
+.h2 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+table {
+    width: 100%;
+  }
+
+  .table-data-text {
+    padding: 4px;
+  }

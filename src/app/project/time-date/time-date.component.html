@@ -1,0 +1,21 @@
+<div class="widget" fxLayout="column" fxLayoutAlign="start stretch">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="current-day-time">
+        <div class="current-day-time-text">{{today | date:'EEEE'}} , {{today | date: 'h:mm:ss'}}</div>
+        <div>
+            <button mat-flat-button [matMenuTriggerFor]="saleMenu" class="heading-btn">
+                <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+            </button>
+
+            <mat-menu #saleMenu="matMenu" yPosition="below">
+                <button mat-menu-item>
+                    <span> Details </span>
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center" class="current-date">
+        <div class="current-month">{{today | date:'MMMM'}}</div>
+        <div class="current-day">{{today | date:'d'}}</div>
+        <div class="current-year">{{today | date:'yyyy'}}</div>
+    </div>
+</div>

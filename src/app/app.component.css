@@ -343,13 +343,16 @@ mat-icon {
     z-index: 99998;
   }
 
-  .menu-form {
-    width: 100%;
-    margin-top: 30px !important;
+  .search-box {
+    margin-top: 48px !important;
   }
 
-  .menu-form-full-width {
-    width: 100%;
+  .search-container input {
+    color: #444;
+    border: none;
+    border-radius: 100px;
+    background-color: #fff;
+    padding: 5px 16px;
   }
 
   mat-expansion-panel-header mat-icon {

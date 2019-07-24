@@ -1,0 +1,57 @@
+<div class="budget-detail-widget" fxLayout="column" fxLayoutAlign="start stretch">
+
+    <div class="h2 heading-content"> Budget Details </div>
+
+    <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- budget_type Column -->
+            <ng-container matColumnDef="budget_type">
+                <th mat-header-cell *matHeaderCellDef> Budget Type </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="table-data-text"
+                        [ngStyle]="{'background-color':element.budget_type_bgcolor}">{{element.budget_type}}</span>
+                </td>
+            </ng-container>
+
+            <!-- total_budget Column -->
+            <ng-container matColumnDef="total_budget">
+                <th mat-header-cell *matHeaderCellDef> Total Budget </th>
+                <td mat-cell *matCellDef="let element"> ${{element.total_budget}} </td>
+            </ng-container>
+
+            <!-- spentInMoney Column -->
+            <ng-container matColumnDef="spentInMoney">
+                <th mat-header-cell *matHeaderCellDef> Spent ($) </th>
+                <td mat-cell *matCellDef="let element"> ${{element.spentInMoney}} </td>
+            </ng-container>
+
+            <!-- spentInPercent Column -->
+            <ng-container matColumnDef="spentInPercent">
+                <th mat-header-cell *matHeaderCellDef> Spent (%) </th>
+                <td mat-cell *matCellDef="let element"> %{{element.spentInPercent}} <mat-icon
+                        class="material-icons-outlined">{{element.trending_type}}</mat-icon>
+                </td>
+            </ng-container>
+
+            <!-- remainingInMoney Column -->
+            <ng-container matColumnDef="remainingInMoney">
+                <th mat-header-cell *matHeaderCellDef> Remaining ($) </th>
+                <td mat-cell *matCellDef="let element"> ${{element.remainingInMoney}} </td>
+            </ng-container>
+
+            <!-- remainingInPercent Column -->
+            <ng-container matColumnDef="remainingInPercent">
+                <th mat-header-cell *matHeaderCellDef> Remaining (%) </th>
+                <td mat-cell *matCellDef="let element"> %{{element.remainingInPercent}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </div>
+</div>

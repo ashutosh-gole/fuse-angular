@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
         {
           hasSubMenu: false,
           show: true,
-          displayName: "Dashboard"
+          displayName: "Analytics"
         },
         {
           hasSubMenu: false,
@@ -459,8 +459,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.menuLists = this.tempMenuLists;
-    // this.onSerachMenuOption();
-    // console.log(this.menuLists);
   }
 
   public openPanel() {
@@ -468,28 +466,29 @@ export class AppComponent implements OnInit {
   }
 
 
- public onSerachMenuOption() {
-    if(this.searchName.trim() !== ''){
+  public onSearchMenuOption() {
+    if (this.searchName.trim() !== '') {
       const containsDeep = (text) => (value) => {
-        if(!value) return false;
+        if (!value) return false;
         const valueType = typeof value;
-        
-        if(valueType === 'string') {
+
+        if (valueType === 'string') {
           return value.toLowerCase().indexOf(text.toLowerCase()) > -1;
         }
-        if(Array.isArray(value)) {
+        if (Array.isArray(value)) {
           return value.some(containsDeep(text));
         }
-        if(valueType === 'object') {
+        if (valueType === 'object') {
           return Object.values(value).some(containsDeep(text));
         }
         return false;
       };
 
-      this.menuLists = this.menuLists.filter(containsDeep(this.searchName)); 
-    }else{
+      this.menuLists = this.menuLists.filter(containsDeep(this.searchName.trim()));
+    }
+    else {
       this.menuLists = this.tempMenuLists;
-    }  
- }
+    }
+  }
 
 }

@@ -32,13 +32,11 @@
                         </div>
                     </div>
 
-                    <div>
-                        <form class="menu-form">
-                            <mat-form-field class="menu-form-full-width">
-                                <input matInput placeholder="Search Menu Option" name="serachbox"
-                                    [(ngModel)]="searchName" (input)="onSerachMenuOption()">
-                            </mat-form-field>
-                        </form>
+                    <div fxLayout="row" fxLayoutAlign="space-around center" class="search-box">
+                        <div fxFlex="80" class="search-container">
+                            <input matInput placeholder="Search Menu Option" name="serachbox" type="search"
+                                autocomplete="off" [(ngModel)]="searchName" (input)="onSearchMenuOption()">
+                        </div>
                     </div>
 
                     <div class="sidenav-content">
@@ -69,7 +67,8 @@
                                         <a *ngFor="let children of item.subMenuList">
 
                                             <!-- if nested submenu present -->
-                                            <a class="list-item" *ngIf="children.show === true && children.hasSubMenu==true">
+                                            <a class="list-item"
+                                                *ngIf="children.show === true && children.hasSubMenu==true">
                                                 <mat-expansion-panel (opened)="true" (closed)="false">
                                                     <mat-expansion-panel-header class="specific-class">
                                                         <a>
@@ -92,9 +91,11 @@
                                             </a>
 
                                             <!-- if nested submenu not present -->
-                                            <a class="list-item" *ngIf="children.show === true && children.hasSubMenu==false">
+                                            <a class="list-item"
+                                                *ngIf="children.show === true && children.hasSubMenu==false">
                                                 <button mat-flat-button>
-                                                    <span class="list-item-children-text">{{children.displayName}}</span>
+                                                    <span
+                                                        class="list-item-children-text">{{children.displayName}}</span>
                                                     <span *ngIf="children.badgeValue != null"
                                                         [class.list-item-badge1]="children.badgeValue != null">{{children.badgeValue}}</span>
                                                 </button>
