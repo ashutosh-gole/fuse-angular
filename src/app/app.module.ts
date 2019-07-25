@@ -46,6 +46,10 @@ import { ProjectTeamMembersComponent } from './project/project-content/project-t
 import { TimeDateComponent } from './project/time-date/time-date.component';
 import { CityWeatherComponent } from './project/city-weather/city-weather.component';
 import { ProjectHomeComponent } from './project/project-content/project-home/project-home.component';
+import { TaskDistributionComponent } from './project/project-content/project-home/task-distribution/task-distribution.component';
+import { DailyScheduleComponent } from './project/project-content/project-home/daily-schedule/daily-schedule.component';
+import { DailyScheduleDataComponent } from './project/project-content/project-home/daily-schedule/daily-schedule-data/daily-schedule-data.component';
+import { TaskDistributionPieComponent } from './project/project-content/project-home/task-distribution/task-distribution-pie/task-distribution-pie.component';
 import { BudgetSummaryComponent } from './project/project-content/budget-summary/budget-summary.component';
 import { BudgetDistributionPieComponent } from './project/project-content/budget-summary/budget-distribution-pie/budget-distribution-pie.component';
 import { BudgetDetailComponent } from './project/project-content/budget-summary/budget-detail/budget-detail.component';
@@ -81,6 +85,10 @@ import { BudgetDetailComponent } from './project/project-content/budget-summary/
     TimeDateComponent,
     CityWeatherComponent,
     ProjectHomeComponent,
+    TaskDistributionComponent,
+    TaskDistributionPieComponent,
+    DailyScheduleComponent,
+    DailyScheduleDataComponent,
     BudgetSummaryComponent,
     BudgetDistributionPieComponent,
     BudgetDetailComponent

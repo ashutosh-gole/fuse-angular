@@ -1,0 +1,23 @@
+<div class="task-distribution-widget" fxLayout="column" fxLayoutAlign="start stretch">
+
+    <div class="widget-content" fxLayout="row" fxLayoutAlign="start center">
+        <div class="pie-text">Schedule</div>
+        <span class="example-spacer"></span>
+        <div>
+            <mat-form-field>
+                <mat-select value="Today">
+                    <mat-option value="Today" (click)="changeDay('Today')"> Today </mat-option>
+                    <mat-option value="Tomorrow" (click)="changeDay('Tomorrow')"> Tomorrow </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
+
+    <div>
+        <app-daily-schedule-data [scheduleDataInput]="scheduleData">
+        </app-daily-schedule-data>
+    </div>
+
+</div>

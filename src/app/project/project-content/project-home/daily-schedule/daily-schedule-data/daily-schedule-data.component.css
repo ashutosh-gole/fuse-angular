@@ -1,0 +1,12 @@
+.task-content {
+    padding: 16px 0px 16px 16px;
+}
+
+.task-name-text {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.task-time-text {
+    color: rgba(0,0,0,.54); 
+}

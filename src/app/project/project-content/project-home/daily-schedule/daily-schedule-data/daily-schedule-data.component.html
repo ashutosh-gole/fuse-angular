@@ -1,0 +1,14 @@
+<div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let item of scheduleDataInput"
+        class="task-content">
+        <div fxLayout="column" fxLayoutAlign="start stretch">
+            <span class="task-name-text">{{item.taskName}}</span>
+            <span class="task-time-text">{{item.taskTime}}</span>
+        </div>
+        <div>
+            <button mat-flat-button>
+                <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

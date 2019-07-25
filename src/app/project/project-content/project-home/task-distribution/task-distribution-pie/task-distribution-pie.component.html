@@ -1,0 +1,22 @@
+<div>
+    <div>
+        <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions"
+            style="width: 300px; height: 400px; display: block;">
+        </highcharts-chart>
+    </div>
+
+    <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
+
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxFlex="48" fxLayout="column" fxLayoutAlign="start center">
+            <span class="task-number">{{taskAdded}}</span>
+            <span class="task-text">Tasks Added</span>
+        </div>
+        <mat-divider fxFlex="2" vertical style="height:100px;width: 2px;"></mat-divider>
+        <div fxFlex="48" fxLayout="column" fxLayoutAlign="start center">
+            <span class="task-number">{{taskCompleted}}</span>
+            <span class="task-text">Tasks Completed</span>
+        </div>
+
+    </div>
+</div>

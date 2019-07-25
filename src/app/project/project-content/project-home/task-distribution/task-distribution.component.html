@@ -1,0 +1,23 @@
+<div class="task-distribution-widget" fxLayout="column" fxLayoutAlign="start stretch">
+
+    <div class="widget-content" fxLayout="row" fxLayoutAlign="start center">
+        <div class="pie-text">Task Distribution</div>
+        <span class="example-spacer"></span>
+        <div>
+            <mat-form-field>
+                <mat-select value="This Week">
+                    <mat-option value="This Week" (click)="changeWeek('1')"> This Week </mat-option>
+                    <mat-option value="Last Week " (click)="changeWeek('2')"> Last Week </mat-option>
+                    <mat-option value="2 Weeks Ago" (click)="changeWeek('3')"> 2 Weeks Ago </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
+
+    <div>
+        <app-task-distribution-pie [taskDataInput]="taskData" [taskAddedCompletedInput]="taskAddedCompletedData"></app-task-distribution-pie>
+    </div>
+
+</div>
