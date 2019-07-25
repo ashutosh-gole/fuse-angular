@@ -1,0 +1,10 @@
+.issue-data-text {
+    color: rgba(0,0,0,.54);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.issue-data-number {
+    font-size: 34px;
+    font-weight: 400;
+}

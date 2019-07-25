@@ -1,0 +1,44 @@
+<div class="github-issues-widget" fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="github-issues-widget-heading-content" fxLayout="row" fxLayoutAlign="start center">
+        <div>
+            <span class="github-issues-widget-heading">Github Issues</span><br>
+        </div>
+        <span class="example-spacer"></span>
+        <button mat-flat-button class="heading-btn" (click)="changeWeek('1')"> This Week </button>
+        <button mat-flat-button class="heading-btn" (click)="changeWeek('2')"> Last Week </button>
+        <button mat-flat-button class="heading-btn" (click)="changeWeek('3')"> 2 Weeks Ago </button>
+    </div>
+
+    <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
+
+    <div fxLayout="row" fxLayoutAlign="start stretch">
+        <div fxFlex="50">
+            <app-github-issues-bar [issuesDataInput]="issuesData" [closedIssuesDataInput]="closedIssuesData">
+            </app-github-issues-bar>
+        </div>
+        <div fxFlex="50" fxLayout="row" fxLayoutAlign="start stretch">
+            <div fxFlex="50" fxLayout="column" fxLayoutAlign="start stretch">
+                <div>
+                    <app-issue-created-area [issueCreatedDataInput]="issueCreatedData"></app-issue-created-area>
+                </div>
+                <div>
+                    <app-issue-reopened-area [issueReopenedDataInput]="issueReopenedData"></app-issue-reopened-area>
+                </div>
+                <div>
+                    <app-issue-need-test-area [issueNeedTestDataInput]="issueNeedTestData"></app-issue-need-test-area>
+                </div>
+            </div>
+            <div fxFlex="50" fxLayout="column" fxLayoutAlign="start stretch">
+                <div>
+                    <app-issue-closed-area [issueClosedDataInput]="issueClosedData"></app-issue-closed-area>
+                </div>
+                <div>
+                    <app-issue-wont-fixed-area [issueWontFixedDataInput]="issueWontFixedData">
+                    </app-issue-wont-fixed-area>
+                </div>
+                <div>z</div>
+            </div>
+        </div>
+    </div>
+
+</div>

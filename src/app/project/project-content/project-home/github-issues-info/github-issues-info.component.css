@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.github-issues-widget {
+    background-color: #fff!important;
+    color: rgba(0,0,0,.87);
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.1);
+    margin: 12px;
+}
+
+.github-issues-widget-heading-content {
+    padding: 24px 16px 24px 16px !important;
+}
+
+.github-issues-widget-heading {
+    color: rgba(0,0,0,.87);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+.heading-btn {
+    background-color: #fff!important;
+    color: rgba(0,0,0,.87);
+}
