@@ -41,3 +41,9 @@
 .secondary-content-heading {
     margin-top: 30px;
 }
+
+/* class are dynamically added */
+.selected {
+    background-color: #1976d2!important;
+    color: #fff!important;
+}

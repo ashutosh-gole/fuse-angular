@@ -4,9 +4,14 @@
             <span class="github-issues-widget-heading">Github Issues</span><br>
         </div>
         <span class="example-spacer"></span>
-        <button mat-flat-button class="heading-btn" (click)="changeWeek('1')"> This Week </button>
+        <button mat-flat-button class="heading-btn" *ngFor="let week of weeks" (click)="changeWeek(week)"
+            [class.selected]="currentWeek == week">
+            {{week}}
+        </button>
+
+        <!-- <button mat-flat-button class="heading-btn" (click)="changeWeek('1')"> This Week </button>
         <button mat-flat-button class="heading-btn" (click)="changeWeek('2')"> Last Week </button>
-        <button mat-flat-button class="heading-btn" (click)="changeWeek('3')"> 2 Weeks Ago </button>
+        <button mat-flat-button class="heading-btn" (click)="changeWeek('3')"> 2 Weeks Ago </button> -->
     </div>
 
     <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
@@ -36,7 +41,9 @@
                     <app-issue-wont-fixed-area [issueWontFixedDataInput]="issueWontFixedData">
                     </app-issue-wont-fixed-area>
                 </div>
-                <div>z</div>
+                <div>
+                    <app-issue-fixed-area [issueFixedDataInput]="issueFixedData"></app-issue-fixed-area>
+                </div>
             </div>
         </div>
     </div>

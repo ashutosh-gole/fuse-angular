@@ -7,9 +7,13 @@
                 <span class="h5 secondary-text">Unique visitors by month</span>
             </div>
             <span class="example-spacer"></span>
-            <button mat-flat-button class="heading-btn" (click)="changeYear('2016')">2016</button>
+            <button mat-flat-button class="heading-btn" *ngFor="let year of years" (click)="changeYear(year)"
+                [class.selected]="currentYear == year">
+                {{year}}
+            </button>
+            <!-- <button mat-flat-button class="heading-btn" (click)="changeYear('2016')">2016</button>
             <button mat-flat-button class="heading-btn" (click)="changeYear('2017')">2017</button>
-            <button mat-flat-button class="heading-btn" (click)="changeYear('2018')">2018</button>
+            <button mat-flat-button class="heading-btn" (click)="changeYear('2018')">2018</button> -->
         </div>
     </div>
 

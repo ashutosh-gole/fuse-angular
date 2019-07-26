@@ -53,3 +53,9 @@
     background-color: #f0571a!important;
     color: #000000!important;
 }
+
+/* class are dynamically added */
+.selected {
+    background-color:#0279b3!important;
+    color: #fff!important;
+}

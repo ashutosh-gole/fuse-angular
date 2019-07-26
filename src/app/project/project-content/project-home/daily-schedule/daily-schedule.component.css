@@ -18,3 +18,7 @@
     font-size: 14px;
     font-weight: 400;
 }
+
+.select-option-width {
+    width: 120px !important;
+}

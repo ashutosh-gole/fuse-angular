@@ -51,15 +51,16 @@ import { DailyScheduleComponent } from './project/project-content/project-home/d
 import { DailyScheduleDataComponent } from './project/project-content/project-home/daily-schedule/daily-schedule-data/daily-schedule-data.component';
 import { GithubIssuesInfoComponent } from './project/project-content/project-home/github-issues-info/github-issues-info.component';
 import { GithubIssuesBarComponent } from './project/project-content/project-home/github-issues-info/github-issues-bar/github-issues-bar.component';
-import { TaskDistributionPieComponent } from './project/project-content/project-home/task-distribution/task-distribution-pie/task-distribution-pie.component';
-import { BudgetSummaryComponent } from './project/project-content/budget-summary/budget-summary.component';
-import { BudgetDistributionPieComponent } from './project/project-content/budget-summary/budget-distribution-pie/budget-distribution-pie.component';
-import { BudgetDetailComponent } from './project/project-content/budget-summary/budget-detail/budget-detail.component';
 import { IssueCreatedAreaComponent } from './project/project-content/project-home/github-issues-info/issue-created-area/issue-created-area.component';
 import { IssueClosedAreaComponent } from './project/project-content/project-home/github-issues-info/issue-closed-area/issue-closed-area.component';
 import { IssueReopenedAreaComponent } from './project/project-content/project-home/github-issues-info/issue-reopened-area/issue-reopened-area.component';
 import { IssueWontFixedAreaComponent } from './project/project-content/project-home/github-issues-info/issue-wont-fixed-area/issue-wont-fixed-area.component';
 import { IssueNeedTestAreaComponent } from './project/project-content/project-home/github-issues-info/issue-need-test-area/issue-need-test-area.component';
+import { IssueFixedAreaComponent } from './project/project-content/project-home/github-issues-info/issue-fixed-area/issue-fixed-area.component';
+import { TaskDistributionPieComponent } from './project/project-content/project-home/task-distribution/task-distribution-pie/task-distribution-pie.component';
+import { BudgetSummaryComponent } from './project/project-content/budget-summary/budget-summary.component';
+import { BudgetDistributionPieComponent } from './project/project-content/budget-summary/budget-distribution-pie/budget-distribution-pie.component';
+import { BudgetDetailComponent } from './project/project-content/budget-summary/budget-detail/budget-detail.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { IssueNeedTestAreaComponent } from './project/project-content/project-ho
     IssueReopenedAreaComponent,
     IssueWontFixedAreaComponent,
     IssueNeedTestAreaComponent,
+    IssueFixedAreaComponent,
     BudgetSummaryComponent,
     BudgetDistributionPieComponent,
     BudgetDetailComponent

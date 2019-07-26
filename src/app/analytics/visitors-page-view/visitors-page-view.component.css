@@ -33,3 +33,9 @@
     font-weight: 300;
     padding-bottom: 24px!important;
 }
+
+/* class are dynamically added */
+.selected {
+    background-color: #039be5!important;
+    color: #fff!important;
+}

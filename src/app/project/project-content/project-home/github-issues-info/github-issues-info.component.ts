@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GithubIssuesInfoComponent implements OnInit {
 
+    weeks: string[] = ['This Week', 'Last Week', '2 Weeks Ago'];
+    currentWeek: string = 'This Week';
     issuesData: number[] = [42, 28, 43, 34, 20, 25, 22];
     closedIssuesData: number[] = [11, 10, 8, 11, 8, 10, 17];
 
@@ -23,7 +25,9 @@ export class GithubIssuesInfoComponent implements OnInit {
 
     public changeWeek(week: string) {
 
-        if (week === '1') {
+        this.currentWeek = week;
+
+        if (week === 'This Week') {
             this.issuesData = [42, 28, 43, 34, 20, 25, 22];
             this.closedIssuesData = [11, 10, 8, 11, 8, 10, 17];
 
@@ -34,7 +38,7 @@ export class GithubIssuesInfoComponent implements OnInit {
             this.issueNeedTestData = [[8], [6, 3, 7, 5, 5, 4, 7]];
             this.issueFixedData = [[14], [5, 7, 4, 6, 5, 3, 2]];
         }
-        else if (week === '2') {
+        else if (week === 'Last Week') {
             this.issuesData = [37, 24, 51, 31, 29, 17, 31];
             this.closedIssuesData = [12, 8, 7, 13, 7, 6, 10];
 
@@ -45,7 +49,7 @@ export class GithubIssuesInfoComponent implements OnInit {
             this.issueNeedTestData = [[7], [5, 7, 8, 8, 6, 4, 1]];
             this.issueFixedData = [[17], [6, 5, 4, 5, 7, 4, 7]];
         }
-        else if (week === '3') {
+        else if (week === '2 Weeks Ago') {
             this.issuesData = [37, 32, 39, 27, 18, 24, 20];
             this.closedIssuesData = [9, 12, 9, 12, 7, 8, 16];
 

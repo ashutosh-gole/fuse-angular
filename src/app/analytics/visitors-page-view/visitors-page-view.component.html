@@ -4,8 +4,12 @@
             <span class="h2">Visitors & Page views</span><br>
         </div>
         <span class="example-spacer"></span>
-        <button mat-flat-button class="heading-btn" (click)="changeDay('Yesterday')">Yesterday</button>
-        <button mat-flat-button class="heading-btn" (click)="changeDay('Today')">Today</button>
+        <button mat-flat-button class="heading-btn" *ngFor="let day of days" (click)="changeDay(day)"
+            [class.selected]="currentDay == day">
+            {{day}}
+        </button>
+        <!-- <button mat-flat-button class="heading-btn" (click)="changeDay('Yesterday')">Yesterday</button>
+        <button mat-flat-button class="heading-btn" (click)="changeDay('Today')">Today</button> -->
     </div>
     <div>
         <app-visitors-area [visitorsDataInput]="visitorsData" [pageViewDataInput]="pageViewsData"></app-visitors-area>

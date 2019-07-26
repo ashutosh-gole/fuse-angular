@@ -7,21 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesInfoComponent implements OnInit {
 
+    dates: string[] = ['1DAY', '1WEEK', '1MONTH'];
+    currentDate: string = '1DAY';
     salesData: number[] = [540, 539, 538, 539, 540, 539, 540];
     isActive = false;
 
     ngOnInit() {
     }
 
-    public changeDates(dates: string) {
+    public changeDate(date: string) {
 
-        if (dates === '1MONTH') {
+        this.currentDate = date;
+
+        if (date === '1MONTH') {
             this.salesData = [540, 539, 538, 539, 540, 539, 540];
         }
-        else if (dates === '1WEEK') {
+        else if (date === '1WEEK') {
             this.salesData = [538, 539, 538, 539, 538, 540, 540];
         }
-        else if (dates === '1DAY') {
+        else if (date === '1DAY') {
             this.salesData = [541, 539, 540, 539, 540, 538, 540];
         }
 

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitorsPageViewComponent implements OnInit {
 
+    days: string[] = ['Yesterday', 'Today'];
+    currentDay: string = 'Today';
     visitorsData: number[] = [410, 380, 320, 290, 190, 390, 250, 380, 300, 340, 220, 290];
     pageViewsData: number[] = [3000, 3400, 4100, 3800, 2200, 3200, 2900, 1900, 2900, 3900, 2500, 3800];
 
@@ -14,6 +16,8 @@ export class VisitorsPageViewComponent implements OnInit {
     }
 
     public changeDay(day: string) {
+
+        this.currentDay = day;
 
         if (day === 'Yesterday') {
             this.visitorsData = [190, 300, 340, 220, 290, 390, 250, 380, 410, 380, 320, 290];

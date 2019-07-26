@@ -1,10 +1,12 @@
 .issue-data-text {
+    padding-left: 15px;
     color: rgba(0,0,0,.54);
     font-size: 15px;
     font-weight: 400;
 }
 
 .issue-data-number {
+    padding-left: 15px;
     font-size: 34px;
     font-weight: 400;
 }

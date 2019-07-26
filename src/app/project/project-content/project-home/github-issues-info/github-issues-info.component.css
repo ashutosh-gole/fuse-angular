@@ -20,8 +20,13 @@
     font-weight: 400;
 }
 
-
 .heading-btn {
     background-color: #fff!important;
     color: rgba(0,0,0,.87);
+} 
+
+/* class are dynamically added */
+.selected {
+    background-color: #039be5!important;
+    color: #fff!important;
 }

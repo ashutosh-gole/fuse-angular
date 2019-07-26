@@ -36,9 +36,16 @@
         </div>
 
         <div class="main-widget-content" fxLayout="row" fxLayoutAlign="space-between center">
-            <button mat-flat-button class="heading-btn" (click)="changeDates('1DAY')" [class.active-button]="isActive" >1DAY</button>
-            <button mat-flat-button class="heading-btn" (click)="changeDates('1WEEK')" [class.active-button]="isActive">1WEEK</button>
-            <button mat-flat-button class="heading-btn" (click)="changeDates('1MONTH')" [class.active-button]="isActive">1MONTH</button>
+            <button mat-flat-button class="heading-btn" *ngFor="let date of dates" (click)="changeDate(date)"
+                [class.selected]="currentDate == date">
+                {{date}}
+            </button>
+            <!-- <button mat-flat-button class="heading-btn" (click)="changeDates('1DAY')"
+                [class.active-button]="isActive">1DAY</button>
+            <button mat-flat-button class="heading-btn" (click)="changeDates('1WEEK')"
+                [class.active-button]="isActive">1WEEK</button>
+            <button mat-flat-button class="heading-btn" (click)="changeDates('1MONTH')"
+                [class.active-button]="isActive">1MONTH</button> -->
         </div>
     </div>
 

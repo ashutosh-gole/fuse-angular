@@ -2,21 +2,21 @@ import { Component, Input, OnChanges } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
-  selector: 'app-issue-closed-area',
-  templateUrl: './issue-closed-area.component.html',
-  styleUrls: ['./issue-closed-area.component.css']
+  selector: 'app-issue-fixed-area',
+  templateUrl: './issue-fixed-area.component.html',
+  styleUrls: ['./issue-fixed-area.component.css']
 })
-export class IssueClosedAreaComponent implements OnChanges {
-  @Input() issueClosedDataInput: Array<any>;
+export class IssueFixedAreaComponent implements OnChanges {
+  @Input() issueFixedDataInput: Array<any>;
 
-  closedValue: any;
+  fixedValue: any;
   highcharts = Highcharts;
   chartOptions: any;
   constructor() { }
 
   ngOnChanges() {
 
-    this.closedValue = this.issueClosedDataInput[0];
+    this.fixedValue = this.issueFixedDataInput[0];
 
     this.chartOptions = {
       chart: {
@@ -42,6 +42,8 @@ export class IssueClosedAreaComponent implements OnChanges {
         borderWidth: 1,
       },
       xAxis: {
+        lineColor: 'transparent',
+        gridLineWidth:0,
         crosshair: {
           width: 2,
           color: 'gray'
@@ -52,6 +54,8 @@ export class IssueClosedAreaComponent implements OnChanges {
         }
       },
       yAxis: {
+        lineColor: 'transparent',
+        gridLineWidth:0,
         offset: -20,
         // lineWidth: 1,
         // gridLineWidth: 1,
@@ -76,14 +80,14 @@ export class IssueClosedAreaComponent implements OnChanges {
       series: [
         {
           color: '#35b8f1',
-          lineColor: '#35b8f1',
+          lineColor: 'transparent',
           marker: {
             symbol: 'circle',
-            fillColor: '#35b8f1',
+            fillColor: 'transparent',
             lineWidth: 0
           },
-          name: 'CREATED',
-          data: this.issueClosedDataInput[1]
+          name: 'FIXED',
+          data: this.issueFixedDataInput[1]
         }
       ]
     };

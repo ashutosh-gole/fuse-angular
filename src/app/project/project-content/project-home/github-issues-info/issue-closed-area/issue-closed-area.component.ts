@@ -42,6 +42,8 @@ export class IssueClosedAreaComponent implements OnChanges {
         borderWidth: 1,
       },
       xAxis: {
+        lineColor: 'transparent',
+        gridLineWidth:0,
         crosshair: {
           width: 2,
           color: 'gray'
@@ -52,6 +54,8 @@ export class IssueClosedAreaComponent implements OnChanges {
         }
       },
       yAxis: {
+        lineColor: 'transparent',
+        gridLineWidth:0,
         offset: -20,
         // lineWidth: 1,
         // gridLineWidth: 1,
@@ -76,13 +80,13 @@ export class IssueClosedAreaComponent implements OnChanges {
       series: [
         {
           color: '#35b8f1',
-          lineColor: '#35b8f1',
+          lineColor: 'transparent',
           marker: {
             symbol: 'circle',
-            fillColor: '#35b8f1',
+            fillColor: 'transparent',
             lineWidth: 0
           },
-          name: 'CREATED',
+          name: 'CLOSED',
           data: this.issueClosedDataInput[1]
         }
       ]
