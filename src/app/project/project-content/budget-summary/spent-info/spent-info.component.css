@@ -1,0 +1,59 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.github-issues-widget {
+    background-color: #fff!important;
+    color: rgba(0,0,0,.87);
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.1);
+    margin: 12px;
+}
+
+.github-issues-widget-heading-content {
+    padding: 24px 16px 24px 16px !important;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.spent-widget {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.1);
+    margin: 12px;
+}
+
+.widget-content {
+    padding: 9px 16px 8px 16px !important;
+}
+
+.spent-text {
+    color: rgba(0,0,0,.87);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* class are dynamically added */
+.selected {
+    background-color: #039be5!important;
+    color: #fff!important;
+}
+
+.select-option-width {
+    width: 120px !important;
+}
+
+.spent-data-text {
+    padding-left: 15px;
+    color: rgba(0,0,0,.54);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.spent-data-number {
+    padding-left: 15px;
+    font-size: 34px;
+    font-weight: 400;
+}

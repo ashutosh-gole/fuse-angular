@@ -61,6 +61,10 @@ import { TaskDistributionPieComponent } from './project/project-content/project-
 import { BudgetSummaryComponent } from './project/project-content/budget-summary/budget-summary.component';
 import { BudgetDistributionPieComponent } from './project/project-content/budget-summary/budget-distribution-pie/budget-distribution-pie.component';
 import { BudgetDetailComponent } from './project/project-content/budget-summary/budget-detail/budget-detail.component';
+import { SpentInfoComponent } from './project/project-content/budget-summary/spent-info/spent-info.component';
+import { WeeklySpentAreaComponent } from './project/project-content/budget-summary/spent-info/weekly-spent-area/weekly-spent-area.component';
+import { TotalSpentAreaComponent } from './project/project-content/budget-summary/spent-info/total-spent-area/total-spent-area.component';
+import { RemainingSpentAreaComponent } from './project/project-content/budget-summary/spent-info/remaining-spent-area/remaining-spent-area.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +111,11 @@ import { BudgetDetailComponent } from './project/project-content/budget-summary/
     IssueFixedAreaComponent,
     BudgetSummaryComponent,
     BudgetDistributionPieComponent,
-    BudgetDetailComponent
+    BudgetDetailComponent,
+    SpentInfoComponent,
+    WeeklySpentAreaComponent,
+    TotalSpentAreaComponent,
+    RemainingSpentAreaComponent
 
   ],
   imports: [

@@ -1,0 +1,38 @@
+<div class="spent-widget" fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="widget-content" fxLayout="row" fxLayoutAlign="start center">
+        <div>
+            <span class="spent-text">Spent</span>
+        </div>
+        <span class="example-spacer"></span>
+        <div>
+            <mat-form-field class="select-option-width">
+                <mat-select value="This Week">
+                    <mat-option *ngFor="let week of weeks" [value]="week" (click)="changeWeek(week)"
+                        [class.selected]="currentWeek == week">
+                        {{week}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
+
+    <div fxLayout="column" fxLayoutAlign="start stretch">
+        <div>
+            <app-weekly-spent-area [weeklySpentDataInput]="weeklySpentData"></app-weekly-spent-area>
+        </div>
+        <div>
+            <app-total-spent-area [totalSpentDataInput]="totalSpentData"></app-total-spent-area>
+        </div>
+        <div>
+            <app-remaining-spent-area [remainingSpentDataInput]="remainingSpentData"></app-remaining-spent-area>
+        </div>
+        <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
+        <div fxLayout="column" fxLayoutAlign="start stretch">
+            <span class="spent-data-text">TOTAL BUDGET</span>
+            <span class="spent-data-number">${{totalBudget}}</span>
+        </div>
+    </div>
+
+</div>
