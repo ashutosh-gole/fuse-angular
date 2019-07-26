@@ -7,6 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { CustomMaterialModule } from './custom-material.module';
 
+// for calendar
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 // theme option service
 import { ThemeOptionService } from './services/theme-option.service';
 
@@ -126,7 +130,11 @@ import { RemainingSpentAreaComponent } from './project/project-content/budget-su
     FlexLayoutModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   providers: [
     {

@@ -1,0 +1,34 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+/* for calendar */
+h3 {
+    margin: 0 0 10px;
+  }
+  
+  pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+  }
+
+.calendar-widget .calendar-header {
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    position: relative;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 24px!important;
+}
+
+.calendar-widget .calendar-header {
+    background-image: url(../../assets/images/calendar/summer.jpg);
+    background-position: 0 80%;
+}
+
+
+.calendar-logo-text {
+    font-size: 24px;
+}
