@@ -7,19 +7,23 @@
             <mat-icon class="secondary-text material-icons-outlined">today</mat-icon>
             <span class="calendar-logo-text">&nbsp;&nbsp; Calendar</span>
             <span class="example-spacer"></span>
-            <button mat-icon-button matTooltip="Search" matTooltipPosition="below">
+            <button mat-icon-button matTooltip="Search">
                 <mat-icon class="secondary-text material-icons-outlined">search</mat-icon>
             </button>
-            <button mat-icon-button matTooltip="Today" matTooltipPosition="below">
+            <button mat-icon-button matTooltip="Today" matTooltipPosition="below" matTooltipPosition="below"
+                mwlCalendarToday [(viewDate)]="viewDate">
                 <mat-icon class="secondary-text material-icons-outlined">today</mat-icon>
             </button>
-            <button mat-icon-button matTooltip="Day" matTooltipPosition="below">
+            <button mat-icon-button matTooltip="Day" matTooltipPosition="below" (click)="setView(CalendarView.Day)"
+                [class.active]="view === CalendarView.Day">
                 <mat-icon class="secondary-text material-icons-outlined">view_day</mat-icon>
             </button>
-            <button mat-icon-button matTooltip="Week" matTooltipPosition="below">
+            <button mat-icon-button matTooltip="Week" matTooltipPosition="below" (click)="setView(CalendarView.Week)"
+                [class.active]="view === CalendarView.Week">
                 <mat-icon class="secondary-text material-icons-outlined">view_week</mat-icon>
             </button>
-            <button mat-icon-button matTooltip="Month" matTooltipPosition="below">
+            <button mat-icon-button matTooltip="Month" matTooltipPosition="below" (click)="setView(CalendarView.Month)"
+                [class.active]="view === CalendarView.Month">
                 <mat-icon class="secondary-text material-icons-outlined">view_module</mat-icon>
             </button>
         </div>
@@ -28,10 +32,13 @@
 
         <div fxLayout="row" fxLayoutAlign="start stretch">
             <span class="example-spacer"></span>
-            <button mat-icon-button matTooltip="Next Month" matTooltipPosition="below">
+            <button mat-icon-button matTooltip="Previous Month" matTooltipPosition="before" mwlCalendarPreviousView
+                [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
                 <mat-icon class="secondary-text material-icons-outlined">chevron_left</mat-icon>
             </button>
-            <button mat-icon-button matTooltip="Previous Month" matTooltipPosition="below">
+            <h4 class="view-date-text">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h4>
+            <button mat-icon-button matTooltip="Next Month" matTooltipPosition="after" mwlCalendarNextView [view]="view"
+                [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
                 <mat-icon class="secondary-text material-icons-outlined">chevron_right</mat-icon>
             </button>
             <span class="example-spacer"></span>
@@ -39,8 +46,25 @@
 
     </div>
 
-    <div>
 
+    <button mat-fab color="primary" matTooltip="Add Event" matTooltipPosition="before" class="add-event-button"
+        (click)="addEvent()">
+        <mat-icon class="material-icons-outlined">add</mat-icon>
+    </button>
+
+    <div [ngSwitch]="view" class="calendar-content">
+        <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+            (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-month-view>
+        <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-week-view>
+        <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-day-view>
     </div>
 
 </div>

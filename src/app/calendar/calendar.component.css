@@ -32,3 +32,19 @@ h3 {
 .calendar-logo-text {
     font-size: 24px;
 }
+
+.view-date-text {
+  margin: 8px 14px 0px 14px;
+}
+
+.add-event-button {
+  position: absolute;
+  right: 35px;
+  top: 235px;
+  z-index: 10;
+  background-color: #039be5;
+}
+
+.calendar-content {
+  padding: 24px;
+}

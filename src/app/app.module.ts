@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { CustomMaterialModule } from './custom-material.module';
 
+// for color picker
+import { ColorPickerModule } from 'ngx-color-picker';
 // for calendar
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
@@ -27,7 +29,6 @@ import { HighchartsChartComponent } from 'highcharts-angular';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 
-import { CalendarComponent } from './calendar/calendar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ThemeOptionsComponent } from './theme-options/theme-options.component';
 
@@ -69,6 +70,8 @@ import { SpentInfoComponent } from './project/project-content/budget-summary/spe
 import { WeeklySpentAreaComponent } from './project/project-content/budget-summary/spent-info/weekly-spent-area/weekly-spent-area.component';
 import { TotalSpentAreaComponent } from './project/project-content/budget-summary/spent-info/total-spent-area/total-spent-area.component';
 import { RemainingSpentAreaComponent } from './project/project-content/budget-summary/spent-info/remaining-spent-area/remaining-spent-area.component';
+import { CalendarComponent, DeleteButtonDialogContent } from './calendar/calendar.component';
+import { NewEventComponent } from './calendar/new-event/new-event.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +122,10 @@ import { RemainingSpentAreaComponent } from './project/project-content/budget-su
     SpentInfoComponent,
     WeeklySpentAreaComponent,
     TotalSpentAreaComponent,
-    RemainingSpentAreaComponent
+    RemainingSpentAreaComponent,
+    // Calendar Page Component
+    DeleteButtonDialogContent,
+    NewEventComponent
 
   ],
   imports: [
@@ -131,10 +137,14 @@ import { RemainingSpentAreaComponent } from './project/project-content/budget-su
     BrowserAnimationsModule,
     CustomMaterialModule,
     PerfectScrollbarModule,
+    ColorPickerModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
     })
+  ],
+  entryComponents: [
+    DeleteButtonDialogContent, NewEventComponent
   ],
   providers: [
     {

@@ -1,0 +1,59 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+    <span>New Event</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content>
+    <div>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
+            <div fxLayout="column" fxLayoutAlign="start stretch">
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Title *" formControlName="title">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <div fxFlex="50">
+                        <input [(colorPicker)]="color" [style.background]="color" />
+                    </div>
+                    <div fxFlex="50">
+                        <input [(colorPicker)]="color" [style.background]="color" />
+                    </div>
+                </div>
+                <div>
+
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <div fxFlex="50">
+
+                    </div>
+                    <div fxFlex="50">
+
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <div fxFlex="50">
+
+                    </div>
+                    <div fxFlex="50">
+
+                    </div>
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">ADD</button>
+</mat-dialog-actions>

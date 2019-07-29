@@ -14,6 +14,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import {
@@ -42,6 +43,7 @@ import {
     MatProgressBarModule,
     MatTableModule,
     MatInputModule,
+    MatDialogModule,
 
 
     MatButtonModule,
@@ -66,6 +68,7 @@ import {
     MatProgressBarModule,
     MatTableModule,
     MatInputModule,
+    MatDialogModule,
 
 
 
